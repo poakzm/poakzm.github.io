@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function Question(marks, question, answer) {
+            this.marks = marks;
+            this.question = question;
+            this.answer = answer;
+        }
+        Question.prototype.getMarks = function() {
+            //        for(i=0;i<this.choices.length;i++){
+            //            var c = this.choices[i];
+            //        }
+            return this.marks;
+        }
+
+        Question.prototype.getQuestions = function() {
+            return this.question;
+        }
+        Question.prototype.getAnswers = function() {
+            return this.answer;
+        }
+
+        function MultiChoicesQuestion(marks, question, answer, choices) {
+            Question.call(this, marks, question, answer);
+            this.choices = choices;
+        }
+        
+        MultiChoicesQuestion.prototype=new Question();
+        MultiChoicesQuestion.prototype.constructor = MultiChoicesQuestion;
+        
+        MultiChoicesQuestion.prototype.getAnswers = function() {
+            return this.answer;
+        }
+    </script>
+</body>
+
+</html>
